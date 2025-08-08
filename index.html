@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOS Emergency</title>
+  
+  <!-- Link ke ikon dan manifest -->
+  <link rel="icon" href="sos.png" type="image/png" />
+  <link rel="manifest" href="manifest.json" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #ffebeb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      width: 250px;
+      height: 250px;
+      border: none;
+      background: url('sos.png') no-repeat center center;
+      background-size: contain;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="document.getElementById('siren').play()"></button>
+
+  <audio id="siren">
+    <source src="siren.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
