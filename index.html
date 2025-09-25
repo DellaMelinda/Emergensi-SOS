@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SOS Emergency</title>
-  
-  <!-- Link ke ikon dan manifest -->
-  <link rel="icon" href="sos.png" type="image/png" />
-  <link rel="manifest" href="manifest.json" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚨 SOS Button</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      background: #ffebeb;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      background: #111;
+      flex-direction: column;
+      color: white;
+      font-family: Arial, sans-serif;
     }
-
     button {
-      width: 250px;
-      height: 250px;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      margin: 10px;
       border: none;
-      background: url('sos.png') no-repeat center center;
-      background-size: contain;
+      border-radius: 12px;
       cursor: pointer;
+      font-weight: bold;
+    }
+    .play {
+      background: red;
+      color: white;
+    }
+    .stop {
+      background: gray;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <button onclick="document.getElementById('siren').play()"></button>
+  <h1>🚨 Emergency SOS 🚨</h1>
 
-  <audio id="siren">
-    <source src="siren.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Audio -->
+  <audio id="siren" src="siren.mp3"></audio>
+
+  <!-- Tombol -->
+  <button class="play" onclick="playSiren()">▶ PLAY SOS</button>
+  <button class="stop" onclick="stopSiren()">⏹ STOP</button>
+
+  <script>
+    function playSiren() {
+      let audio = document.getElementById("siren");
+      audio.loop = true;        // otomatis berulang terus
+      audio.volume = 1.0;       // full volume
+      audio.play();
+    }
+
+    function stopSiren() {
+      let audio = document.getElementById("siren");
+      audio.pause();
+      audio.currentTime = 0;    // reset balik ke awal
+    }
+  </script>
 </body>
 </html>
