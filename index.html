@@ -38,22 +38,22 @@
   <h1>🚨 Emergency SOS 🚨</h1>
 
   <!-- Audio -->
-  <audio id="sirine" src="sirine.mp3?v=2" loop></audio>
+  <audio id="sirine" src="sirine.mp3?" loop></audio>
 
   <!-- Tombol -->
-  <button class="play" onclick="playSiren()">▶ PLAY SOS</button>
-  <button class="stop" onclick="stopSiren()">⏹ STOP</button>
+  <button class="play" onclick="playSirine()">▶ PLAY SOS</button>
+  <button class="stop" onclick="stopSirine()">⏹ STOP</button>
 
   <script>
     function playSiren() {
-      let audio = document.getElementById("siren");
+      let audio = document.getElementById("sirine");
       audio.loop = true;        // otomatis berulang terus
       audio.volume = 1.0;       // full volume
       audio.play();
     }
 
     function stopSiren() {
-      let audio = document.getElementById("siren");
+      let audio = document.getElementById("sirine");
       audio.pause();
       audio.currentTime = 0;    // reset balik ke awal
     }
